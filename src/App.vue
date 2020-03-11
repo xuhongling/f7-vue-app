@@ -17,7 +17,7 @@
           routes: router,
           name: 'f7-vue-app',
           id: 'com.myapp.test',
-          theme: 'auto',
+          theme: 'auto', // 主题 auto自适应; ios: 苹果; android:安卓 
           touch: {
             disableContextMenu: false //是否开启上下文联动    
           },
