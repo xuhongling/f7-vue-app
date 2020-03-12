@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import store from './store'
 import App from './App.vue'
 
 // Import Framework7 Bundle
@@ -15,5 +16,6 @@ Framework7.use(Framework7Vue)
 Vue.config.productionTip = false
 
 new Vue({
+	store,
   render: h => h(App),
 }).$mount('#app')
