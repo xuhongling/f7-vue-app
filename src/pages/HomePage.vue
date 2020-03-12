@@ -1,24 +1,11 @@
 <template>
 	<f7-page>
-    <f7-navbar title="Toolbar" back-link="Back"></f7-navbar>
-    <f7-toolbar :position="isBottom ? 'bottom' : 'top'">
-      <f7-link>Left Link</f7-link>
-      <f7-link>Right Link</f7-link>
-    </f7-toolbar>
-    <f7-block-title>Toolbar Position</f7-block-title>
-    <f7-block>
-      <p>Toolbar supports both top and bottom positions. Click the following button to change its position.</p>
-      <p>
-        <f7-button raised @click="isBottom = !isBottom">Toggle Toolbar Position</f7-button>
-      </p>
-    </f7-block>
-    <f7-block>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam enim quia molestiae...</p>
-    </f7-block>
-  </f7-page>
+		fdsfd
+	</f7-page>
 </template>
 
 <script>
+	import {mapState, mapActions} from 'vuex'
 	export default {
 		name: "HomePage",
 		data() {
@@ -26,10 +13,30 @@
 				isBottom: true,
 			}
 		},
+		computed: {
+			...mapState([
+				'isAuthenticated',
+				'userName'
+			])
+		},
 		methods:{
-			
+			...mapActions([
+				'logIn',
+				'logOut',
+				'setUserName'
+			])
 		},
 		mounted(){
+			//this.logIn()
+			this.logOut()
+			this.setUserName('qqq')
+			console.log(this.isAuthenticated,this.userName,'1111')
+
+			console.log(this.$f7route, 'f7router')
+
+			// 路由判断登录 根据路由配置文件的参数
+			//this.$f7route.navigate('/login')
+			console.log(this.$f7route.beforeEnter)
 			
 		},
 		components:{

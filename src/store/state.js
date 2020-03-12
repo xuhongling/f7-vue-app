@@ -1,7 +1,6 @@
 const state = {
-  singer: {},
-  playing: false,
-  fullScreen: false
+  isAuthenticated: false,
+	userName: ''
 }
 
 export default state

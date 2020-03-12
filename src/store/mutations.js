@@ -1,11 +1,14 @@
 import * as types from './mutation-types'
 
 const mutations = {
-  [types.SET_SINGER](state, singer) {
-    state.singer = singer
+  [types.LOGIN](state) {
+    state.isAuthenticated = true
   },
-  [types.SET_PLAYING_STATE](state, flag) {
-    state.playing = flag
+  [types.LOGOUT](state) {
+    state.isAuthenticated = false
+  },
+  [types.SET_USERNAME](state, userName) {
+    state.userName = userName
   }
 }
 
