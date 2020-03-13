@@ -35,7 +35,7 @@
 			console.log(this.$f7route, 'f7router')
 
 			// 路由判断登录 根据路由配置文件的参数
-			//this.$f7route.navigate('/login')
+			this.$f7router.navigate('/login')
 			console.log(this.$f7route.beforeEnter)
 			
 		},

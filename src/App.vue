@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <f7-app :params="f7params">
-      <f7-view main url="/home"></f7-view>
+      <f7-view main url="/"></f7-view>
     </f7-app>
   </div>
 </template>
@@ -17,7 +17,7 @@
           routes: router,
           name: 'f7-vue-app',
           id: 'com.myapp.test',
-          theme: 'auto', // 主题 auto自适应; ios: 苹果; android:安卓 
+          theme: 'auto', // 主题 auto:自适应; ios:苹果; android:安卓 
           touch: {
             disableContextMenu: false //是否开启上下文联动    
           },
