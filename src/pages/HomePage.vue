@@ -1,11 +1,12 @@
 <template>
 	<f7-page>
-		fdsfd
+		<AMap/>
 	</f7-page>
 </template>
 
 <script>
-	import {mapState, mapActions} from 'vuex'
+	import {mapState} from 'vuex'
+	import AMap from 'components/AMap'
 	export default {
 		name: "HomePage",
 		data() {
@@ -20,27 +21,18 @@
 			])
 		},
 		methods:{
-			...mapActions([
-				'logIn',
-				'logOut',
-				'setUserName'
-			])
+			
 		},
 		mounted(){
-			//this.logIn()
-			this.logOut()
-			this.setUserName('qqq')
-			console.log(this.isAuthenticated,this.userName,'1111')
-
-			console.log(this.$f7route, 'f7router')
-
+			console.log(this.userName,'userName')
 			// 路由判断登录 根据路由配置文件的参数
-			this.$f7router.navigate('/login')
-			console.log(this.$f7route.beforeEnter)
+			if (!this.isAuthenticated) {
+				this.$f7router.navigate('/login')
+			}
 			
 		},
 		components:{
-			
+			AMap
 		}
 	}
 </script>
