@@ -1,5 +1,5 @@
 <template>
-	<f7-page no-toolbar no-navbar no-swipeback login-screen>
+	<f7-page no-toolbar no-navbar no-swipeback login-screen name="login">
     <f7-login-screen-title>荆州市农村基层防汛项</f7-login-screen-title>
     <f7-list form>
       <f7-list-input
@@ -46,7 +46,7 @@
         });*/
         this.logIn()
         this.setUserName(this.username)
-        this.$f7router.navigate('/home')
+        this.$f7router.navigate('/home/')
       }
 		},
 		mounted(){

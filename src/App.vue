@@ -23,7 +23,7 @@
           },
           view: {
             pushState: true,
-            pushStateRoot: ' ', //根URL分隔符也可以使用   document.location.pathname.split('index.html')[0]
+            pushStateRoot: '', //根URL分隔符也可以使用   document.location.pathname.split('index.html')[0]
             pushStateSeparator: '#'  //pushStateRoot为空字符才能使用，网址 分隔符号 # !
           }, //f7移植到vue后路由切换后刷新无法保存当前路由在app.vue中加入pushState属性和pushStateRoot属性以及让‘/’根路由匹配index.html
           dialog: { //fw7-vue选择框按钮内容

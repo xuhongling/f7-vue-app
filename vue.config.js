@@ -73,6 +73,11 @@ module.exports = {
 				'pages': resolve('src/pages'),
 				'utils': resolve('src/utils'),
 			}
-		}
+		},
+		// 由于“config”中默认是没有定义 ”externals“属性的所以使用[]形式加入新属性
+		config["externals"] = {
+      AMap: "AMap",
+      AMapUI: "AMapUI"
+    }
 	}
 }
