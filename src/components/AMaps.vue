@@ -3,6 +3,7 @@
 </template>
 
 <script>
+	import Vue from 'vue'
 	import AMap from 'AMap'
 	export default {
 		name: "AMaps",
@@ -29,7 +30,7 @@
 				})
 
 				// 判断页面返回中心点，层级
-				let Map = new AMap.Map('map', {
+				let globalMap = new AMap.Map('map', {
 					layers:[layer, satellite, roadNet],
 					resizeEnable: true,                 //是否监控地图容器尺寸变化
 					zoom: 15,                         //初始化地图层级
@@ -46,7 +47,13 @@
 				})
 				satellite.hide()
 				roadNet.hide()
-				console.log(Map,'MapMap')
+
+				// 把地图挂载到 Vue.prototype，以便全局可以访问到
+        Vue.prototype.globalMap = globalMap
+        
+        // 去掉高德地图logo和版权信息
+        document.getElementsByClassName('amap-logo')[0].remove();
+				document.getElementsByClassName('amap-copyright')[0].remove();
 			}
 		},
 		mounted(){
