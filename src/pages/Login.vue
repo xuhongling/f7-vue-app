@@ -1,6 +1,6 @@
 <template>
 	<f7-page no-toolbar no-navbar no-swipeback login-screen name="login">
-    <f7-login-screen-title>荆州市农村基层防汛项</f7-login-screen-title>
+    <f7-login-screen-title>荆州市农村基层防汛</f7-login-screen-title>
     <f7-list form>
       <f7-list-input
         label="用户名"
@@ -18,7 +18,7 @@
       ></f7-list-input>
     </f7-list>
     <f7-list class="signInBtn">
-      <f7-button fill @click="signIn">登 录</f7-button>
+      <f7-button large round fill @click="signIn">登 录</f7-button>
     </f7-list>
   </f7-page>
 </template>
@@ -46,6 +46,8 @@
         });*/
         this.logIn()
         this.setUserName(this.username)
+        // 保存数据到sessionStorage
+        sessionStorage.setItem('isAuthenticated', 'true')
         this.$f7router.navigate('/home/')
       }
 		},

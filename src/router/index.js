@@ -1,4 +1,5 @@
 import HomePage from 'pages/HomePage'
+import Login from 'pages/Login'
 
 export default [
 	{
@@ -12,6 +13,6 @@ export default [
 	}, {
     path:'/login/',
     name:'login',
-    component: () => import('pages/Login')
+    component: Login
   }
 ]
