@@ -9,30 +9,32 @@
 		<f7-tabs animated>
 			<!-- 首页地图 -->
 			<f7-tab id="tab-1" class="page-content" tab-active>
-				<div class="homeMap">
+				<div class="homeWrapper">
 					<AMaps/>
+					<MapLeftTool/>
+					<MapRightTool/>
+					<SearchBar/>
+					<MapLocation/>
+					<MapScale/>
 				</div>
 			</f7-tab>
 			<!-- 数据查询 -->
 			<f7-tab id="tab-2" class="page-content">
-				<f7-block>
-					<p>Tab 2 content</p>
-					...
-				</f7-block>
+				<div class="homeWrapper">
+					dfddadds2222222
+				</div>
 			</f7-tab>
 			<!-- 信息管理 -->
 			<f7-tab id="tab-3" class="page-content">
-				<f7-block>
-					<p>Tab 3 content</p>
-					...
-				</f7-block>
+				<div class="homeWrapper">
+					daadk333333
+				</div>
 			</f7-tab>
 			<!-- 我的 -->
 			<f7-tab id="tab-4" class="page-content">
-				<f7-block>
-					<p>Tab 4 content</p>
-					...
-				</f7-block>
+				<div class="homeWrapper">
+					<MyProfile/>
+				</div>
 			</f7-tab>
 		</f7-tabs>
 	</f7-page>
@@ -41,6 +43,12 @@
 <script>
 	import {mapState} from 'vuex'
 	import AMaps from 'components/AMaps'
+	import MapLeftTool from 'components/MapLeftTool'
+	import MapRightTool from 'components/MapRightTool'
+	import SearchBar from 'components/Search'
+	import MapLocation from 'components/MapLocation'
+	import MapScale from 'components/MapScale'
+	import MyProfile from 'pages/MyProfile'
 	export default {
 		name: "HomePage",
 		data() {
@@ -67,7 +75,13 @@
 			}
 		},
 		components:{
-			AMaps
+			AMaps,
+			MapLeftTool,
+			MapRightTool,
+			SearchBar,
+			MapLocation,
+			MapScale,
+			MyProfile
 		}
 	}
 </script>
@@ -76,15 +90,16 @@
 .homePage{
 	.navigationTabbar{
 		i.iconfont{
-			font-size: 18px !important;
+			font-size: 20px !important;
 		}
 		.tabName{
 			font-size: 10px;
 		}
 	}
-	.homeMap{
+	.homeWrapper{
 		width: 100%;
 		height: 100%;
+		position: relative;
 	}
 }
 </style>
