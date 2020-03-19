@@ -1,5 +1,6 @@
 import HomePage from 'pages/HomePage'
 import Login from 'pages/Login'
+import DataReport from 'pages/DataReport'
 
 export default [
 	{
@@ -14,5 +15,9 @@ export default [
     path:'/login/',
     name:'login',
     component: Login
+  }, {
+    path:'/dataReport/',
+    name:'dataReport',
+    component: DataReport
   }
 ]

@@ -1,10 +1,12 @@
 <template>
 	<ul class="mapRightTool">
-		<li class="listItem"><i class="iconfont icon-tuceng"></i></li>
+		<li class="listItem" @click="handleClickOpenPanel"><i class="iconfont icon-tuceng"></i></li>
 		<li class="listItem"><i class="iconfont icon-celiang"></i></li>
 		<li class="listItem"><i class="iconfont icon-xunjian"></i></li>
 		<li class="listItem"><i class="iconfont icon-shangbao"></i></li>
-		<li class="listItem"><i class="iconfont icon-shujushangbao"></i></li>
+		<li class="listItem">
+			<f7-link href="/dataReport/"><i class="iconfont icon-shujushangbao"></i></f7-link>
+		</li>
 	</ul>
 </template>
 
@@ -17,7 +19,10 @@
 			}
 		},
 		methods:{
-			
+			handleClickOpenPanel(){
+				let panelRight = this.$f7.panel.get('.panel-right')
+				panelRight.open()
+			}
 		},
 		mounted(){
 			

@@ -12,7 +12,9 @@
 				<div class="homeWrapper">
 					<AMaps/>
 					<MapLeftTool/>
+					<LeftPanelCollection/>
 					<MapRightTool/>
+					<RightPanelCollection/>
 					<SearchBar/>
 					<MapLocation/>
 					<MapScale/>
@@ -21,13 +23,13 @@
 			<!-- 数据查询 -->
 			<f7-tab id="tab-2" class="page-content">
 				<div class="homeWrapper">
-					dfddadds2222222
+					<DataQuery/>
 				</div>
 			</f7-tab>
 			<!-- 信息管理 -->
 			<f7-tab id="tab-3" class="page-content">
 				<div class="homeWrapper">
-					daadk333333
+					<InfoManage/>
 				</div>
 			</f7-tab>
 			<!-- 我的 -->
@@ -44,10 +46,14 @@
 	import {mapState} from 'vuex'
 	import AMaps from 'components/AMaps'
 	import MapLeftTool from 'components/MapLeftTool'
+	import LeftPanelCollection from 'components/MapLeftTool/LeftPanelCollection'
 	import MapRightTool from 'components/MapRightTool'
+	import RightPanelCollection from 'components/MapRightTool/RightPanelCollection'
 	import SearchBar from 'components/Search'
 	import MapLocation from 'components/MapLocation'
 	import MapScale from 'components/MapScale'
+	import DataQuery from 'pages/DataQuery'
+	import InfoManage from 'pages/InfoManage'
 	import MyProfile from 'pages/MyProfile'
 	export default {
 		name: "HomePage",
@@ -77,10 +83,14 @@
 		components:{
 			AMaps,
 			MapLeftTool,
+			LeftPanelCollection,
 			MapRightTool,
+			RightPanelCollection,
 			SearchBar,
 			MapLocation,
 			MapScale,
+			DataQuery,
+			InfoManage,
 			MyProfile
 		}
 	}

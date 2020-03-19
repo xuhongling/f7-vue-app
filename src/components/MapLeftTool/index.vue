@@ -1,6 +1,6 @@
 <template>
 	<ul class="mapLeftTool">
-		<li class="listItem"><i class="iconfont icon-shoucang"></i></li>
+		<li class="listItem" raised panel-open="left" @click="handleClickOpenPanel"><i class="iconfont icon-shoucang"></i></li>
 		<li class="listItem"><i class="iconfont icon-tongxunlu"></i></li>
 	</ul>
 </template>
@@ -14,7 +14,10 @@
 			}
 		},
 		methods:{
-			
+			handleClickOpenPanel(){
+				let panelLeft = this.$f7.panel.get('.panel-left')
+				panelLeft.open()
+			}
 		},
 		mounted(){
 			
@@ -48,7 +51,7 @@
 			}
 		}
 		.listItem:nth-child(1){
-			i{color: #f76262;}
+			i{color: #ff4444;}
 		}
 		.listItem:nth-child(2){
 			i{color: #969b9e;}

@@ -29,7 +29,7 @@
           dialog: { //fw7-vue选择框按钮内容
             buttonOk: "确认",
             buttonCancel: "取消"
-          },
+          }
         }
       };
     },
