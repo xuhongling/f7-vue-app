@@ -1,5 +1,6 @@
 <template>
 	<f7-page name="dataReport" class="dataReport">
+		<f7-navbar title="数据上报" back-link="Back"></f7-navbar>
 		<f7-list>
 			<f7-list-item title="Fruit" smart-select>
 		    <select name="fruits">

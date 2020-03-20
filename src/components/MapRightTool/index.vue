@@ -1,9 +1,13 @@
 <template>
 	<ul class="mapRightTool">
 		<li class="listItem" @click="handleClickOpenPanel"><i class="iconfont icon-tuceng"></i></li>
-		<li class="listItem"><i class="iconfont icon-celiang"></i></li>
-		<li class="listItem"><i class="iconfont icon-xunjian"></i></li>
-		<li class="listItem"><i class="iconfont icon-shangbao"></i></li>
+		<li class="listItem" v-bind:class="{isActive: isRule}" @click="handleClickRule"><i class="iconfont icon-celiang"></i></li>
+		<li class="listItem">
+			<f7-link href="/goInspection/"><i class="iconfont icon-xunjian"></i></f7-link>
+		</li>
+		<li class="listItem">
+			<f7-link href="/emergencyReport/"><i class="iconfont icon-shangbao"></i></f7-link>
+		</li>
 		<li class="listItem">
 			<f7-link href="/dataReport/"><i class="iconfont icon-shujushangbao"></i></f7-link>
 		</li>
@@ -11,18 +15,60 @@
 </template>
 
 <script>
+	import AMap from 'AMap'
 	export default {
 		name: "MapRightTool",
 		data() {
 			return {
-				
+				isRule: false
 			}
 		},
 		methods:{
 			handleClickOpenPanel(){
 				let panelRight = this.$f7.panel.get('.panel-right')
 				panelRight.open()
-			}
+			},
+		  // 测量距离
+		  handleClickRule(){
+		    let Map = this.globalMap
+		    let mouseTool = new AMap.MouseTool(Map)
+		    if (!this.isRule) {
+		      mouseTool.rule({
+		        startMarkerOptions: { //可缺省
+		          icon: new AMap.Icon({
+		            size: new AMap.Size(19, 31), //图标大小
+		            imageSize: new AMap.Size(19, 31),
+		            image: "https://webapi.amap.com/theme/v1.3/markers/b/start.png"
+		          })
+		        },
+		        endMarkerOptions: { //可缺省
+		          icon: new AMap.Icon({
+		            size: new AMap.Size(19, 31), //图标大小
+		            imageSize: new AMap.Size(19, 31),
+		            image: "https://webapi.amap.com/theme/v1.3/markers/b/end.png"
+		          }),
+		          offset: new AMap.Pixel(-9, -31)
+		        },
+		        midMarkerOptions: { //可缺省
+		          icon: new AMap.Icon({
+		            size: new AMap.Size(19, 31), //图标大小
+		            imageSize: new AMap.Size(19, 31),
+		            image: "https://webapi.amap.com/theme/v1.3/markers/b/mid.png"
+		          }),
+		          offset: new AMap.Pixel(-9, -31)
+		        },
+		        lineOptions: { //可缺省
+		          strokeStyle: "solid",
+		          strokeColor: "#FF33FF",
+		          strokeOpacity: 1,
+		          strokeWeight: 2
+		        }
+		      })
+		    } else {
+		      mouseTool.close(true) //关闭，并清除覆盖物
+		    }
+		    this.isRule = !this.isRule
+		  }
 		},
 		mounted(){
 			
@@ -69,6 +115,13 @@
 		}
 		.listItem:nth-child(5){
 			i{color: #fccd40;}
+		}
+		.isActive{
+			color: #4287ff !important;
+			background: #deedff;
+			i{
+				color: #4287ff !important;
+			}
 		}
 	}
 </style>
