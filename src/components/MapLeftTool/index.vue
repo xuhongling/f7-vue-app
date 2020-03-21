@@ -1,7 +1,9 @@
 <template>
 	<ul class="mapLeftTool">
 		<li class="listItem" raised panel-open="left" @click="handleClickOpenPanel"><i class="iconfont icon-shoucang"></i></li>
-		<li class="listItem"><i class="iconfont icon-tongxunlu"></i></li>
+		<li class="listItem">
+			<f7-link href="/contactsList/"><i class="iconfont icon-tongxunlu"></i></f7-link>
+		</li>
 	</ul>
 </template>
 

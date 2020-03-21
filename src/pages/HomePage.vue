@@ -16,6 +16,7 @@
 					<MapRightTool/>
 					<RightPanelCollection/>
 					<SearchBar/>
+					<SearchContent/>
 					<MapLocation/>
 					<MapScale/>
 				</div>
@@ -50,6 +51,7 @@
 	import MapRightTool from 'components/MapRightTool'
 	import RightPanelCollection from 'components/MapRightTool/RightPanelCollection'
 	import SearchBar from 'components/Search'
+	import SearchContent from 'components/Search/SearchContent'
 	import MapLocation from 'components/MapLocation'
 	import MapScale from 'components/MapScale'
 	import DataQuery from 'pages/DataQuery'
@@ -87,6 +89,7 @@
 			MapRightTool,
 			RightPanelCollection,
 			SearchBar,
+			SearchContent,
 			MapLocation,
 			MapScale,
 			DataQuery,

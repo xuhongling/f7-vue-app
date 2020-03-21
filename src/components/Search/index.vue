@@ -1,8 +1,9 @@
 <template>
   <div class="searchWrapper">
     <f7-subnavbar :inner="false" no-shadow>
-      <f7-searchbar placeholder="请输入要搜索的测站"></f7-searchbar>
+      <f7-searchbar placeholder="请输入要搜索的测站" readonly></f7-searchbar>
     </f7-subnavbar>
+    <div class="disableSearchbar" @click="handleClickSearchBar"></div>
   </div>
 </template>
 
@@ -15,7 +16,9 @@
       }
     },
     methods:{
-      
+      handleClickSearchBar(){
+
+      }
     },
     mounted(){
       
@@ -31,7 +34,7 @@
     position: absolute;
     top: 10px;
     width: 100%;
-    height: 50px;
+    height: 46px;
     padding: 0 30px;
     box-sizing: border-box;
     *{
@@ -44,6 +47,18 @@
     /deep/.searchbar{
       margin-left: 14px;
       margin-right: 14px;
+    }
+    /deep/.searchbar-backdrop{
+      background: transparent;
+    }
+    .disableSearchbar{
+      width: 100%;
+      height: 46px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: transparent;
+      z-index: 700;
     }
   }
 </style>

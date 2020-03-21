@@ -3,6 +3,7 @@ import Login from 'pages/Login'
 import DataReport from 'pages/DataReport'
 import GoInspection from 'pages/GoInspection'
 import EmergencyReport from 'pages/EmergencyReport'
+import ContactsList from 'pages/ContactsList'
 
 export default [
 	{
@@ -29,5 +30,9 @@ export default [
     path:'/dataReport/',
     name:'dataReport',
     component: DataReport
+  }, {
+    path:'/contactsList/',
+    name:'contactsList',
+    component: ContactsList
   }
 ]
