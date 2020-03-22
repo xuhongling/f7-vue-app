@@ -1,6 +1,7 @@
 const state = {
   isAuthenticated: false,
-	userName: ''
+	userName: '',
+  isShowSearchBar: false
 }
 
 export default state

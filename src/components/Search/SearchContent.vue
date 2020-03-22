@@ -1,5 +1,5 @@
 <template>
-	<f7-page name="searchContent" :page-content="false" class="searchContent">
+	<f7-page name="searchContent" :page-content="false" class="searchContent" v-show="isShowSearchBar">
 		<f7-subnavbar :inner="false">
       <f7-searchbar
         search-container=".search-list"
@@ -54,10 +54,12 @@
 		    <f7-list-item title="Volvo"></f7-list-item>
 		  </f7-list>
 		</div>
+		<div class="mask" @click="hideSearchBar"></div>
 	</f7-page>
 </template>
 
 <script>
+	import { mapState, mapActions } from 'vuex'
 	export default {
 		name: "SearchContent",
 		data() {
@@ -65,8 +67,18 @@
 				
 			}
 		},
+		computed: {
+			...mapState([
+				'isShowSearchBar'
+			])
+		},
 		methods:{
-			
+			...mapActions([
+        'setShowSearchBar'
+      ]),
+			hideSearchBar(){
+				this.setShowSearchBar(false)
+			}
 		},
 		mounted(){
 			
@@ -85,8 +97,16 @@
 		z-index: 2000;
 		width: 100%;
 		height: 100%;
-		background: rgba(0,0,0,0.4);
 		padding-top: 70px;
+		background: transparent;
+		.mask{
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.4);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
 		.searchListWrapper{
 			width: 100%;
 			height: 400px;

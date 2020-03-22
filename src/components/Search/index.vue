@@ -8,6 +8,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   export default {
     name: "SearchBar",
     data() {
@@ -16,8 +17,11 @@
       }
     },
     methods:{
+      ...mapActions([
+        'setShowSearchBar'
+      ]),
       handleClickSearchBar(){
-
+        this.setShowSearchBar(true)
       }
     },
     mounted(){
