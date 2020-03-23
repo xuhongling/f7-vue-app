@@ -103,7 +103,7 @@
 .homePage{
 	.navigationTabbar{
 		i.iconfont{
-			font-size: 20px !important;
+			font-size: 21px !important;
 		}
 		.tabName{
 			font-size: 10px;

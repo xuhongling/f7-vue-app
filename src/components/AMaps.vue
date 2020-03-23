@@ -50,7 +50,9 @@
 
 				// 把地图挂载到 Vue.prototype，以便全局可以访问到
 				Vue.prototype.globalMap = globalMap
-
+				Vue.prototype.satelliteMap = satellite
+				Vue.prototype.roadNetMap = roadNet
+				
 				// 荆州市边界遮罩
 				new AMap.DistrictSearch({
 					extensions: 'all',
