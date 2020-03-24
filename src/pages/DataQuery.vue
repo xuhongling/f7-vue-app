@@ -1,25 +1,25 @@
 <template>
 	<f7-page :page-content="false" class="dataQuery">
 		<f7-toolbar tabbar scrollable :position="isBottom ? 'bottom' : 'top'">
-      <f7-link tab-link="#data-1" tab-link-active>河道</f7-link>
-      <f7-link tab-link="#data-2">湖泊</f7-link>
-      <f7-link tab-link="#data-3">水库</f7-link>
-      <f7-link tab-link="#data-4">闸站</f7-link>
-      <f7-link tab-link="#data-5">泵站</f7-link>
-      <f7-link tab-link="#data-6">人工上传数据</f7-link>
+      <f7-link tab-link="#dataQuery-1" tab-link-active>河道</f7-link>
+      <f7-link tab-link="#dataQuery-2">湖泊</f7-link>
+      <f7-link tab-link="#dataQuery-3">水库</f7-link>
+      <f7-link tab-link="#dataQuery-4">闸站</f7-link>
+      <f7-link tab-link="#dataQuery-5">泵站</f7-link>
+      <f7-link tab-link="#dataQuery-6">人工上传数据</f7-link>
     </f7-toolbar>
     <!-- swipeable 滑动切换-->
     <f7-tabs>
-      <f7-tab id="data-1" class="page-content" tab-active>
+      <f7-tab id="dataQuery-1" class="page-content" tab-active>
         <div class="data-table">
 				  <table>
 				    <thead>
 				      <tr>
-				        <th class="label-cell">Desert (100g serving)</th>
-				        <th class="numeric-cell">Calories</th>
-				        <th class="numeric-cell">Fat (g)</th>
-				        <th class="numeric-cell">Carbs</th>
-				        <th class="numeric-cell">Protein (g)</th>
+				        <th class="label-cell">序号</th>
+                <th class="numeric-cell">测站类型</th>
+                <th class="numeric-cell">测站名</th>
+                <th class="numeric-cell">时间</th>
+                <th class="numeric-cell">当前水位（m）</th>
 				      </tr>
 				    </thead>
 				    <tbody>
@@ -125,31 +125,31 @@
 				  </table>
 				</div>
       </f7-tab>
-      <f7-tab id="data-2" class="page-content">
+      <f7-tab id="dataQuery-2" class="page-content">
         <f7-block>
           <p>Tab 2 content</p>
           ...
         </f7-block>
       </f7-tab>
-      <f7-tab id="data-3" class="page-content">
+      <f7-tab id="dataQuery-3" class="page-content">
         <f7-block>
           <p>Tab 3 content</p>
           ...
         </f7-block>
       </f7-tab>
-      <f7-tab id="data-4" class="page-content">
+      <f7-tab id="dataQuery-4" class="page-content">
         <f7-block>
           <p>Tab 2 content</p>
           ...
         </f7-block> 
       </f7-tab>
-      <f7-tab id="data-5" class="page-content">
+      <f7-tab id="dataQuery-5" class="page-content">
         <f7-block>
           <p>Tab 3 content</p>
           ...
         </f7-block>
       </f7-tab>
-      <f7-tab id="data-6" class="page-content">
+      <f7-tab id="dataQuery-6" class="page-content">
         <f7-block>
           <p>Tab 3 content</p>
           ...
@@ -164,7 +164,6 @@
 		name: "DataQuery",
 		data() {
 			return {
-				tabs: ['河道', '湖泊', '水库', '闸站', '泵站', '人工上传数据'],
         isBottom: false,
 			}
 		},
