@@ -11,115 +11,190 @@
     <!-- swipeable 滑动切换-->
     <f7-tabs>
       <f7-tab id="dataQuery-1" class="page-content" tab-active>
-        <div class="data-table">
+        <div class="dataTable">
 				  <table>
 				    <thead>
 				      <tr>
-				        <th class="label-cell">序号</th>
-                <th class="numeric-cell">测站类型</th>
-                <th class="numeric-cell">测站名</th>
-                <th class="numeric-cell">时间</th>
-                <th class="numeric-cell">当前水位（m）</th>
+				        <th class="index-cell">序号</th>
+				        <th>测站类型</th>
+				        <th>测站名</th>
+				        <th>时间</th>
+				        <th>当前水位(m)</th>
+				        <th>闸前水位(m)</th>
+				        <th>闸后水位(m)</th>
+				        <th>库容(百万m3)</th>
 				      </tr>
 				    </thead>
 				    <tbody>
 				    	<tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
-				      </tr>
-				    	<tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				      <tr>
-				        <td class="label-cell">Frozen yogurt</td>
-				        <td class="numeric-cell">159</td>
-				        <td class="numeric-cell">6.0</td>
-				        <td class="numeric-cell">24</td>
-				        <td class="numeric-cell">4.0</td>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
+				      </tr>
+				      <tr>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
+				      </tr>
+				      <tr>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
+				      </tr>
+				      <tr>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
+				      </tr>
+				      <tr>
+				        <td class="index-cell">11</td>
+				        <td>159</td>
+				        <td>6.0</td>
+				        <td>24</td>
+				        <td>4.0</td>
+				        <td>ewqed</td>
+				        <td>vd</td>
+				        <td>gdfg</td>
 				      </tr>
 				    </tbody>
 				  </table>
@@ -183,16 +258,59 @@
 	.dataQuery{
 		width: 100%;
 		height: 100%;
-		background: #f4f4f4;
+		background: #f2f3f5;
 		/deep/.toolbar{
 			background: #fff;
 		}
-		th{
-			background: #fff;
+		/deep/.page-content{
+			padding: 56px 10px 28px 10px;
 		}
-		tbody{
-			height: 500px;
-			overflow-y: scroll;
+		div[id^='infoManage']{
+			padding-left: 10px;
+			padding-right: 10px;
+			overflow: hidden;
+		}
+		.dataTable{
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background: #fff;
+			table{
+				width: auto;
+				height: 100%;
+			}
+			table tbody {
+				display: block;
+				height: calc(100% - 40px);
+				overflow-y:scroll;
+				border: none;
+			} 
+			table thead, tbody tr {
+				display: table;
+				width: 100%;
+				table-layout:fixed;
+				border: none;
+			}
+			table thead th{
+				height: 40px;
+				background: #f6f7f9;
+				border: none;
+				font-size: 14px;
+				font-weight: bold;
+				color: #111;
+			}
+			tbody td {
+				width: 120px;
+				height: 40px;
+				font-size: 15px;
+				color: #666;
+				border: none;
+				border-bottom: 1px solid #e8ebee;
+				text-align: center;
+			}
+			.index-cell{
+				width: 50px;
+			}
 		}
 	}
 </style>

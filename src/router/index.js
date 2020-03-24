@@ -4,6 +4,7 @@ import DataReport from 'pages/DataReport'
 import GoInspection from 'pages/GoInspection'
 import EmergencyReport from 'pages/EmergencyReport'
 import ContactsList from 'pages/ContactsList'
+import MyMessage from 'pages/MyMessage'
 
 export default [
 	{
@@ -34,5 +35,10 @@ export default [
     path:'/contactsList/',
     name:'contactsList',
     component: ContactsList
+  }
+  , {
+    path:'/myMessage/',
+    name:'myMessage',
+    component: MyMessage
   }
 ]

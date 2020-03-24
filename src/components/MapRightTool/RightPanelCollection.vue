@@ -14,11 +14,26 @@
 			</ul>
 			<h3 class="headerTitle">监测点</h3>
 			<f7-list class="checkboxList">
-			  <f7-list-item checkbox title="收藏点" name="demo-checkbox" checked></f7-list-item>
+			  <!-- <f7-list-item checkbox title="收藏点" name="demo-checkbox" checked></f7-list-item>
 			  <f7-list-item checkbox title="水位测站" name="demo-checkbox"></f7-list-item>
 			  <f7-list-item checkbox title="雨量测站" name="demo-checkbox"></f7-list-item>
 			  <f7-list-item checkbox title="图像站" name="demo-checkbox"></f7-list-item>
-			  <f7-list-item checkbox title="政区划分" name="demo-checkbox"></f7-list-item>
+			  <f7-list-item checkbox title="政区划分" name="demo-checkbox"></f7-list-item> -->
+			  <f7-list-item title="收藏点">
+			    <f7-toggle checked></f7-toggle>
+			  </f7-list-item>
+			  <f7-list-item title="水位测站">
+			    <f7-toggle></f7-toggle>
+			  </f7-list-item>
+			  <f7-list-item title="雨量测站">
+			    <f7-toggle></f7-toggle>
+			  </f7-list-item>
+			  <f7-list-item title="图像站">
+			    <f7-toggle></f7-toggle>
+			  </f7-list-item>
+			  <f7-list-item title="政区划分">
+			    <f7-toggle></f7-toggle>
+			  </f7-list-item>
 			</f7-list>
 		</f7-page>
 	</f7-panel>

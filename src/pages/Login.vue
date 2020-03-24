@@ -63,5 +63,6 @@
 <style lang="less" rel="stylesheet/less" scoped>
 	.signInBtn{
 		padding: 0 10%;
+    a{font-size: 16px;}
 	}
 </style>

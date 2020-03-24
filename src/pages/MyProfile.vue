@@ -14,7 +14,7 @@
     </div>
     <ul class="list">
       <li class="listItem">
-        <div class="item">
+        <f7-link href="/myMessage/" class="item">
           <div class="itemLeft">
             <i class="iconfont icon-xiaoxi"></i>
             <span>我的消息</span>
@@ -22,7 +22,7 @@
           <div class="itemRight">
             <i class="iconfont icon-arrow"></i>
           </div>
-        </div>
+        </f7-link>
       </li>
       <li class="listItem">
         <div class="item">
