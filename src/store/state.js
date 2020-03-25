@@ -1,6 +1,5 @@
 const state = {
-  isAuthenticated: false,
-	userName: '',
+	userName: null,
   isShowSearchBar: false
 }
 

@@ -29,23 +29,24 @@
 		name: "Login",
 		data() {
 			return {
-				username: '',
-        password: ''
+				username: 'admin',
+        password: 'admin'
 			}
 		},
 		methods:{
-      ...mapActions([
-        'logIn',
-        'setUserName'
-      ]),
+      ...mapActions({
+        logIn: "auth/loginByEmail",
+        setUserName: "setUserName"
+      }),
 			signIn() {
-        /*const app = this.$f7;
-        const router = this.$f7router;
-        app.dialog.alert(`Username: ${this.username}<br>Password: ${this.password}`, () => {
-          router.back();
-        });*/
-        this.logIn()
-        this.setUserName(this.username)
+        this.logIn({
+          code: this.username,
+          pwd: this.password
+        }).then(res => {
+          console.log(res.detail,'dsadasdasd')
+          this.setUserName(res.detail)
+        })
+        
         // 保存数据到sessionStorage
         sessionStorage.setItem('isAuthenticated', 'true')
         this.$f7router.navigate('/home/')
