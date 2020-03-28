@@ -18,7 +18,7 @@
       ></f7-list-input>
     </f7-list>
     <f7-list class="signInBtn">
-      <f7-button large round fill @click="signIn">登 录</f7-button>
+      <f7-button large round fill @click="signIn"><span style="font-size: 18px">登 录</span></f7-button>
     </f7-list>
   </f7-page>
 </template>
@@ -64,6 +64,11 @@
 <style lang="less" rel="stylesheet/less" scoped>
 	.signInBtn{
 		padding: 0 10%;
-    a{font-size: 16px;}
+    a{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
 	}
 </style>

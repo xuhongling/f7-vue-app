@@ -6,3 +6,6 @@ export const setUserName = (context, userName)=> {
 export const setShowSearchBar = (context, isShowSearchBar)=> {
   context.commit(types.SET_SHOWSEARCHBAR, isShowSearchBar)
 }
+export const setMarkerList = (context, markerList)=> {
+  context.commit(types.SET_MARKERLIST, markerList)
+}

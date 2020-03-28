@@ -251,6 +251,7 @@
 		height: 100%;
 		background: #f2f3f5;
 		/deep/.list{margin: 0;}
+		/deep/.toolbar{background: #fff;}
 		div[id^='infoManage']{
 			padding-left: 10px;
 			padding-right: 10px;

@@ -19,6 +19,7 @@
 					<SearchContent/>
 					<MapLocation/>
 					<MapScale/>
+					<MapLayerPopup/>
 				</div>
 			</f7-tab>
 			<!-- 数据查询 -->
@@ -54,6 +55,7 @@
 	import SearchContent from 'components/Search/SearchContent'
 	import MapLocation from 'components/MapLocation'
 	import MapScale from 'components/MapScale'
+	import MapLayerPopup from 'components/MapLayerPopup'
 	import DataQuery from 'pages/DataQuery'
 	import InfoManage from 'pages/InfoManage'
 	import MyProfile from 'pages/MyProfile'
@@ -82,6 +84,11 @@
 				this.$f7router.navigate('/login/')
 			}
 		},
+		watch:{
+			userName(val){
+				console.log(val,'ssssss')
+			}
+		},
 		components:{
 			AMaps,
 			MapLeftTool,
@@ -92,6 +99,7 @@
 			SearchContent,
 			MapLocation,
 			MapScale,
+			MapLayerPopup,
 			DataQuery,
 			InfoManage,
 			MyProfile

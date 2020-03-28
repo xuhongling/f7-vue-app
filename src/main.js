@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import store from './store'
 import App from './App.vue'
+import axios from '@/utils/ajax'
 
 // Import Framework7 Bundle
 import Framework7 from 'framework7/framework7-lite.esm.bundle.js'
@@ -14,6 +15,7 @@ import 'assets/css/reset.css'
 Framework7.use(Framework7Vue)
 
 Vue.config.productionTip = false
+Vue.prototype.$axios = axios
 
 new Vue({
 	store,

@@ -5,8 +5,6 @@ const config = {
 	// server: 'http://localhost:8089'
 }
 
-
-
 let mapConfig = {
 	center: [112.240684664, 30.3347925889],
 	mapUrl: {
@@ -49,7 +47,17 @@ mapConfig.layer_type=[
 		"ln_en":"river_zz",
 		"ln_cn":"河道水位站",
 		"png":"./images/gis/wl_0.png"
-	}
+	},
+	{
+	  "ln_en": "layer_dd",
+	  "ln_cn": "闸站",
+	  "png": "./images/gis/brake_dd.png"
+   },
+	{
+ 		"ln_en": "layer_dp",
+  	"ln_cn": "泵站",
+  	"png": "./images/gis/pump_dd.png"
+  }
 ]
 //water_rainfall--降雨量颜色配置
 mapConfig.water_rainfall = {"id":[[0,0],[0,10],[10,25],[25,50],[50,100],[100,250],[250,250000]],

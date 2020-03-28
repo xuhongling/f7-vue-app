@@ -5,14 +5,25 @@
 <script>
 	import Vue from 'vue'
 	import AMap from 'AMap'
+	import { mapActions } from 'vuex'
+	import { config } from 'utils/config'
+	import YLIcon from 'assets/images/gis/meteorological-station.png'
+	import SKIcon from 'assets/images/gis/reservoir.png'
+	import HDIcon from 'assets/images/gis/wl_0.png'
+	import ZZIcon from 'assets/images/gis/brake_dd.png'
+	import BZIcon from 'assets/images/gis/pump_dd.png'
+	
 	export default {
 		name: "AMaps",
 		data() {
 			return {
-				
+				markerListAll: []
 			}
 		},
 		methods:{
+			...mapActions({
+        setMarkerList: "setMarkerList"
+      }),
 			initMap(){
 				// 标准矢量地图
 				let layer = new AMap.TileLayer({
@@ -77,11 +88,74 @@
 					})
 					polygon.setPath(pathArray)
 					globalMap.add(polygon)
+
+					// 去掉高德地图logo和版权信息
+					/*setTimeout(()=>{
+						document.querySelector('.amap-logo').remove();
+						document.querySelector('.amap-copyright').remove();
+					},40)*/
 				})
-				
-				// 去掉高德地图logo和版权信息
-				document.getElementsByClassName('amap-logo')[0].remove();
-				document.getElementsByClassName('amap-copyright')[0].remove();
+
+				this.loadMapData()
+			},
+			// 加载地图监测数据
+			loadMapData() {
+				//查询最新监测数据
+				this.$axios.get(config.server + "/api/dataQuery/getLatestData").then(res => {
+					if (res.code === 1) {
+						// ZZ: 河道 RR: 水库 DD: 泵站 DP: 闸站 PP: 雨量
+						let [YLData, HDData, SKData, BZData, ZZData] = [
+							res.detail.pp,
+							res.detail.zz,
+							res.detail.rr,
+							res.detail.dd,
+							res.detail.dp
+						]
+						this.addTypeMarker(YLData, YLIcon, 'YL')
+						this.addTypeMarker(HDData, HDIcon, 'HD')
+						this.addTypeMarker(SKData, SKIcon, 'SK')
+						this.addTypeMarker(BZData, BZIcon, 'BZ')
+						this.addTypeMarker(ZZData, ZZIcon, 'ZZ')
+
+						// 数据传递给Vuex状态，结果“超出最大调用堆栈大小”，判断markerListAll是否完成
+						this.setMarkerList(true)
+
+						// 把monitorListAll挂载到 Vue.prototype，以便全局可以访问到
+						Vue.prototype.monitorListAll = this.markerListAll
+
+						// 先隐藏地图所有的站点，然后通过MapRightTool里面控制显示
+						for(let i = 0; i< this.markerListAll.length; i++){
+							this.markerListAll[i].hide()
+						}
+					}
+				})
+			},
+			addTypeMarker(data,icon,type) {
+				let marker = null
+	      for (let item of data) {
+	      	let position = [item.LGTD, item.LTTD]
+					marker = this.addMarker(position, icon)
+					// 实例化点标记
+					marker.setMap(this.globalMap)
+					// 给每个创建的坐标监测点添加id
+					item.typeID = type
+					marker.setExtData(item)
+					this.markerListAll.push(marker)
+	      }
+	    },
+			// 实例化点标记
+			addMarker(position, icon) {
+				let marker = new AMap.Marker({
+					icon: new AMap.Icon({
+						image: icon,
+						size: new AMap.Size(18, 18),  //图标大小
+						imageSize: new AMap.Size(18,18),
+						offset: new AMap.Pixel(-9, -18)
+					}),
+					position: position,
+					zooms: [9, 19]
+				})
+      	return marker
 			}
 		},
 		mounted(){

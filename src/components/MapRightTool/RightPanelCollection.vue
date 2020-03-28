@@ -14,25 +14,24 @@
 			</ul>
 			<h3 class="headerTitle">监测点</h3>
 			<f7-list class="checkboxList">
-			  <!-- <f7-list-item checkbox title="收藏点" name="demo-checkbox" checked></f7-list-item>
-			  <f7-list-item checkbox title="水位测站" name="demo-checkbox"></f7-list-item>
-			  <f7-list-item checkbox title="雨量测站" name="demo-checkbox"></f7-list-item>
-			  <f7-list-item checkbox title="图像站" name="demo-checkbox"></f7-list-item>
-			  <f7-list-item checkbox title="政区划分" name="demo-checkbox"></f7-list-item> -->
-			  <f7-list-item title="收藏点">
-			    <f7-toggle checked></f7-toggle>
+				<!-- // ZZ: 河道 RR: 水库 DD: 泵站 DP: 闸站 PP: 雨量 -->
+			  <f7-list-item title="河道测站">
+			    <f7-toggle :checked="HDToggle" @toggle:change='handleChangeToggle($event, "HD")'></f7-toggle>
 			  </f7-list-item>
-			  <f7-list-item title="水位测站">
-			    <f7-toggle></f7-toggle>
+			  <f7-list-item title="水库测站">
+			    <f7-toggle :checked="SKToggle" @toggle:change='handleChangeToggle($event, "SK")'></f7-toggle>
+			  </f7-list-item>
+			  <f7-list-item title="泵站测站">
+			    <f7-toggle :checked="BZToggle" @toggle:change='handleChangeToggle($event, "BZ")'></f7-toggle>
+			  </f7-list-item>
+			  <f7-list-item title="闸站测站">
+			    <f7-toggle :checked="ZZToggle" @toggle:change='handleChangeToggle($event, "ZZ")'></f7-toggle>
 			  </f7-list-item>
 			  <f7-list-item title="雨量测站">
-			    <f7-toggle></f7-toggle>
+			    <f7-toggle :checked="YLToggle" @toggle:change='handleChangeToggle($event, "YL")'></f7-toggle>
 			  </f7-list-item>
-			  <f7-list-item title="图像站">
-			    <f7-toggle></f7-toggle>
-			  </f7-list-item>
-			  <f7-list-item title="政区划分">
-			    <f7-toggle></f7-toggle>
+			  <f7-list-item title="收藏点">
+			    <f7-toggle :checked="SCToggle" @toggle:change='handleChangeToggle($event, "SC")'></f7-toggle>
 			  </f7-list-item>
 			</f7-list>
 		</f7-page>
@@ -40,12 +39,20 @@
 </template>
 
 <script>
+	import { mapState } from 'vuex'
 	export default {
 		name: "RightPanelCollection",
 		data() {
 			return {
 				isNormal: true,
-				isSatellite: false
+				isSatellite: false,
+				markerListAll: [],
+				HDToggle: true,
+				SKToggle: true,
+				BZToggle: true,
+				ZZToggle: true,
+				YLToggle: true,
+				SCToggle: false
 			}
 		},
 		methods:{
@@ -60,13 +67,74 @@
 				this.isSatellite = true
 				this.satelliteMap.show()
 				this.roadNetMap.show()
+			},
+			handleChangeToggle(isShow,type){
+				switch (type) {
+					case 'HD':
+						this.HDToggle = isShow
+						this.isShowMonitor(type,isShow)
+						break
+					case 'SK':
+						this.SKToggle = isShow
+						this.isShowMonitor(type,isShow)
+						break
+					case 'BZ':
+						this.BZToggle = isShow
+						this.isShowMonitor(type,isShow)
+						break
+					case 'ZZ':
+						this.ZZToggle = isShow
+						this.isShowMonitor(type,isShow)
+						break
+					case 'YL':
+						this.YLToggle = isShow
+						this.isShowMonitor(type,isShow)
+						break
+					case 'SC':
+						this.SCToggle = isShow
+						this.isShowMonitor(type,isShow)
+						break
+					default:
+						break
+				}
+			},
+			isShowMonitor(type,isShow){
+				let monitorListAll = this.markerListAll
+				for (let i = 0; i < monitorListAll.length; i++) {
+					let typeID = monitorListAll[i].getExtData().typeID
+					if (typeID === type) {
+						if (isShow) {
+							monitorListAll[i].show()
+						}else {
+							monitorListAll[i].hide()
+						}
+					}
+				}
 			}
+		},
+		computed: {
+			...mapState([
+				'markerList'
+			])
 		},
 		mounted(){
 			
 		},
 		components:{
 			
+		},
+		watch:{
+			markerList(val){
+				if (val) {
+					this.markerListAll = this.monitorListAll
+					//初始化显示站点，懒得写方法了，直接手动调用,参照vue data里面 HDToggle这种是否为true
+					this.isShowMonitor('HD',true)
+					this.isShowMonitor('SK',true)
+					this.isShowMonitor('BZ',true)
+					this.isShowMonitor('ZZ',true)
+					this.isShowMonitor('YL',true)
+				}
+			}
 		}
 	}
 </script>

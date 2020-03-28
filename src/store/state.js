@@ -1,6 +1,7 @@
 const state = {
 	userName: null,
-  isShowSearchBar: false
+  isShowSearchBar: false,
+  markerList: false
 }
 
 export default state
