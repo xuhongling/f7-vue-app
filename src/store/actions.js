@@ -1,7 +1,7 @@
 import * as types from './mutation-types'
 
-export const setUserName = (context, userName)=> {
-  context.commit(types.SET_USERNAME, userName)
+export const setUserInfo = (context, userInfo)=> {
+  context.commit(types.SET_USERINFO, userInfo)
 }
 export const setShowSearchBar = (context, isShowSearchBar)=> {
   context.commit(types.SET_SHOWSEARCHBAR, isShowSearchBar)

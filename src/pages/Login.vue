@@ -36,15 +36,14 @@
 		methods:{
       ...mapActions({
         logIn: "auth/loginByEmail",
-        setUserName: "setUserName"
+        setUserInfo: "setUserInfo"
       }),
 			signIn() {
         this.logIn({
           code: this.username,
           pwd: this.password
         }).then(res => {
-          console.log(res.detail,'dsadasdasd')
-          this.setUserName(res.detail)
+          this.setUserInfo(res.detail)
         })
         
         // 保存数据到sessionStorage

@@ -30,6 +30,9 @@
 			  <f7-list-item title="雨量测站">
 			    <f7-toggle :checked="YLToggle" @toggle:change='handleChangeToggle($event, "YL")'></f7-toggle>
 			  </f7-list-item>
+			  <f7-list-item title="图像站">
+			    <f7-toggle :checked="TXToggle" @toggle:change='handleChangeToggle($event, "TX")'></f7-toggle>
+			  </f7-list-item>
 			  <f7-list-item title="收藏点">
 			    <f7-toggle :checked="SCToggle" @toggle:change='handleChangeToggle($event, "SC")'></f7-toggle>
 			  </f7-list-item>
@@ -52,6 +55,7 @@
 				BZToggle: true,
 				ZZToggle: true,
 				YLToggle: true,
+				TXToggle: true,
 				SCToggle: false
 			}
 		},
@@ -94,6 +98,10 @@
 						this.SCToggle = isShow
 						this.isShowMonitor(type,isShow)
 						break
+					case 'TX':
+						this.TXToggle = isShow
+						this.isShowMonitor(type,isShow)
+						break
 					default:
 						break
 				}
@@ -133,6 +141,7 @@
 					this.isShowMonitor('BZ',true)
 					this.isShowMonitor('ZZ',true)
 					this.isShowMonitor('YL',true)
+					this.isShowMonitor('TX',true)
 				}
 			}
 		}

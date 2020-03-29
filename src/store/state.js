@@ -1,5 +1,5 @@
 const state = {
-	userName: null,
+	userInfo: null,
   isShowSearchBar: false,
   markerList: false
 }

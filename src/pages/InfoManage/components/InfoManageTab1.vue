@@ -86,7 +86,6 @@
             this.allowInfinite = true
             this.tbodyContentAllList = data.detail.result.list
             this.tcount = data.detail.result.tcount
-            console.log(this.tbodyContentAllList,'tbodyContentAllList')
           }
         })
       },

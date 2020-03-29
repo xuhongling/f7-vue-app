@@ -1,4 +1,4 @@
-export const SET_USERNAME = 'SET_USERNAME'
+export const SET_USERINFO = 'SET_USERINFO'
 
 export const SET_SHOWSEARCHBAR = 'SET_SHOWSEARCHBAR'
 

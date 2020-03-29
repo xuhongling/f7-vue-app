@@ -4,8 +4,8 @@
       <div class="userName">
         <h3 class="name">{{userName}}</h3>
         <div class="ascription">
-          <span>水务局</span>
-          <span>巡检人员</span>
+          <span>{{useInfo.dept_name}}</span>
+          <span>{{useInfo.role_name}}</span>
         </div>
       </div>
       <div class="userInfoHead">
@@ -51,21 +51,43 @@
 </template>
 
 <script>
+  import { mapState } from "vuex"
+  import { config } from "utils/config"
   export default {
     name: "MyProfile",
     data() {
       return {
-        userName: '张小明'
+        userName: '张小明',
+        useInfo: {
+          dept_name: "",
+          role_name: ""
+        }
       }
     },
+    computed: {
+      ...mapState([
+        'userInfo'
+      ])
+    },
     methods:{
-      
+      //获取已有的角色
+      hasRoles(id) {
+        this.$axios.get(config.server + "/api/system/user/findSysUserInfoById/" + id).then(res => {
+          this.roleIds = []
+          let roleIds = []
+          if (res.code == 1 && res.detail.result.length > 0) {
+            this.useInfo = res.detail && res.detail.result[0]
+          }
+        })
+      }
     },
     mounted(){
-      
+      this.hasRoles(1) //this.userName.id
     },
-    components:{
-      
+    watch:{
+      userInfo(val){
+        this.userName = val.realname
+      }
     }
   }
 </script>

@@ -68,25 +68,19 @@
 		},
 		computed: {
 			...mapState([
-				'isAuthenticated',
-				'userName'
+				'isAuthenticated'
 			])
 		},
 		methods:{
 			
 		},
 		mounted(){
-			console.log(this.userName,'userName')
+			console.log(this.userInfo,'userInfo')
 			// 从sessionStorage获取数据
 			let isAuthenticated = sessionStorage.getItem('isAuthenticated')
 			// 路由判断登录 根据路由配置文件的参数
 			if (isAuthenticated !== 'true') {
 				this.$f7router.navigate('/login/')
-			}
-		},
-		watch:{
-			userName(val){
-				console.log(val,'ssssss')
 			}
 		},
 		components:{

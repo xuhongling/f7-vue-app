@@ -12,7 +12,8 @@
 	import HDIcon from 'assets/images/gis/wl_0.png'
 	import ZZIcon from 'assets/images/gis/brake_dd.png'
 	import BZIcon from 'assets/images/gis/pump_dd.png'
-	
+	import TXIcon from "assets/images/gis/image.png"
+
 	export default {
 		name: "AMaps",
 		data() {
@@ -104,18 +105,20 @@
 				this.$axios.get(config.server + "/api/dataQuery/getLatestData").then(res => {
 					if (res.code === 1) {
 						// ZZ: 河道 RR: 水库 DD: 泵站 DP: 闸站 PP: 雨量
-						let [YLData, HDData, SKData, BZData, ZZData] = [
+						let [YLData, HDData, SKData, BZData, ZZData, ISData] = [
 							res.detail.pp,
 							res.detail.zz,
 							res.detail.rr,
 							res.detail.dd,
-							res.detail.dp
+							res.detail.dp,
+							res.detail.is
 						]
 						this.addTypeMarker(YLData, YLIcon, 'YL')
 						this.addTypeMarker(HDData, HDIcon, 'HD')
 						this.addTypeMarker(SKData, SKIcon, 'SK')
 						this.addTypeMarker(BZData, BZIcon, 'BZ')
 						this.addTypeMarker(ZZData, ZZIcon, 'ZZ')
+						this.addTypeMarker(ISData, TXIcon, "TX")
 
 						// 数据传递给Vuex状态，结果“超出最大调用堆栈大小”，判断markerListAll是否完成
 						this.setMarkerList(true)
