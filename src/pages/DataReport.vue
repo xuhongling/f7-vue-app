@@ -18,12 +18,8 @@
 		      <option value="虎渡河测站">虎渡河测站</option>
 		    </select>
 		  </f7-list-item>
-		  <f7-list-item title="时间">
-		    <f7-list-input
-			    type="datepicker"
-			    placeholder="请选择日期"
-			    :value="[new Date()]"
-			  ></f7-list-input>
+		  <f7-list-item title="时间" class="calendarDateTime">
+		    <input type="text" placeholder="请选择日期时间" @change="timeValue = $event.target.value" readonly="readonly" id="calendar-date-time"/>
 		  </f7-list-item>
 		  <f7-list-item title="当前水位(m)">
 		  	<f7-list-input
@@ -91,16 +87,22 @@
 		name: "DataReport",
 		data() {
 			return {
-				name: ''
+				name: '',
+				timeValue: ''
 			}
 		},
 		methods:{
 			handleClickSubmit(){
-
+				console.log(this.timeValue,'timeValue')
 			}
 		},
 		mounted(){
-			
+			// 日期时间组件
+			this.$f7.calendar.create({
+        inputEl: '#calendar-date-time',
+        timePicker: true,
+        dateFormat: "yyyy-mm-dd HH::mm:ss",
+      })
 		},
 		components:{
 			
@@ -113,6 +115,9 @@
 		.submitBtn{
 			padding: 0 10%;
 			a{font-size: 16px;}
+		}
+		.calendarDateTime{
+			input{width: 50%;}
 		}
 	}
 </style>

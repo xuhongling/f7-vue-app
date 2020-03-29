@@ -16,22 +16,22 @@
 			<f7-list class="checkboxList">
 				<!-- // ZZ: 河道 RR: 水库 DD: 泵站 DP: 闸站 PP: 雨量 -->
 			  <f7-list-item title="河道测站">
-			    <f7-toggle :checked="HDToggle" @toggle:change='handleChangeToggle($event, "HD")'></f7-toggle>
+			    <f7-toggle :checked="HDToggle" @toggle:change='handleChangeToggle($event, "ZZ")'></f7-toggle>
 			  </f7-list-item>
 			  <f7-list-item title="水库测站">
-			    <f7-toggle :checked="SKToggle" @toggle:change='handleChangeToggle($event, "SK")'></f7-toggle>
+			    <f7-toggle :checked="SKToggle" @toggle:change='handleChangeToggle($event, "RR")'></f7-toggle>
 			  </f7-list-item>
 			  <f7-list-item title="泵站测站">
-			    <f7-toggle :checked="BZToggle" @toggle:change='handleChangeToggle($event, "BZ")'></f7-toggle>
+			    <f7-toggle :checked="BZToggle" @toggle:change='handleChangeToggle($event, "DD")'></f7-toggle>
 			  </f7-list-item>
 			  <f7-list-item title="闸站测站">
-			    <f7-toggle :checked="ZZToggle" @toggle:change='handleChangeToggle($event, "ZZ")'></f7-toggle>
+			    <f7-toggle :checked="ZZToggle" @toggle:change='handleChangeToggle($event, "DP")'></f7-toggle>
 			  </f7-list-item>
 			  <f7-list-item title="雨量测站">
-			    <f7-toggle :checked="YLToggle" @toggle:change='handleChangeToggle($event, "YL")'></f7-toggle>
+			    <f7-toggle :checked="YLToggle" @toggle:change='handleChangeToggle($event, "PP")'></f7-toggle>
 			  </f7-list-item>
 			  <f7-list-item title="图像站">
-			    <f7-toggle :checked="TXToggle" @toggle:change='handleChangeToggle($event, "TX")'></f7-toggle>
+			    <f7-toggle :checked="TXToggle" @toggle:change='handleChangeToggle($event, "IS")'></f7-toggle>
 			  </f7-list-item>
 			  <f7-list-item title="收藏点">
 			    <f7-toggle :checked="SCToggle" @toggle:change='handleChangeToggle($event, "SC")'></f7-toggle>
@@ -74,23 +74,23 @@
 			},
 			handleChangeToggle(isShow,type){
 				switch (type) {
-					case 'HD':
+					case 'ZZ':
 						this.HDToggle = isShow
 						this.isShowMonitor(type,isShow)
 						break
-					case 'SK':
+					case 'RR':
 						this.SKToggle = isShow
 						this.isShowMonitor(type,isShow)
 						break
-					case 'BZ':
+					case 'DD':
 						this.BZToggle = isShow
 						this.isShowMonitor(type,isShow)
 						break
-					case 'ZZ':
+					case 'DP':
 						this.ZZToggle = isShow
 						this.isShowMonitor(type,isShow)
 						break
-					case 'YL':
+					case 'PP':
 						this.YLToggle = isShow
 						this.isShowMonitor(type,isShow)
 						break
@@ -98,7 +98,7 @@
 						this.SCToggle = isShow
 						this.isShowMonitor(type,isShow)
 						break
-					case 'TX':
+					case 'IS':
 						this.TXToggle = isShow
 						this.isShowMonitor(type,isShow)
 						break
@@ -136,12 +136,12 @@
 				if (val) {
 					this.markerListAll = this.monitorListAll
 					//初始化显示站点，懒得写方法了，直接手动调用,参照vue data里面 HDToggle这种是否为true
-					this.isShowMonitor('HD',true)
-					this.isShowMonitor('SK',true)
-					this.isShowMonitor('BZ',true)
+					this.isShowMonitor('PP',true)
+					this.isShowMonitor('RR',true)
+					this.isShowMonitor('DP',true)
+					this.isShowMonitor('DD',true)
 					this.isShowMonitor('ZZ',true)
-					this.isShowMonitor('YL',true)
-					this.isShowMonitor('TX',true)
+					this.isShowMonitor('IS',true)
 				}
 			}
 		}

@@ -168,7 +168,7 @@
         color: #111;
       }
       tbody td {
-        width: 120px;
+        width: 100px;
         height: 40px;
         font-size: 15px;
         color: #666;
@@ -178,6 +178,9 @@
       }
       .index-cell{
         width: 50px;
+      }
+      tbody td:nth-child(2),table thead th:nth-child(2){
+        width: 150px;
       }
     }
     .tbodyContent{

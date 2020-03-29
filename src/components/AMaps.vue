@@ -7,7 +7,7 @@
 	import AMap from 'AMap'
 	import { mapActions } from 'vuex'
 	import { config } from 'utils/config'
-	import YLIcon from 'assets/images/gis/meteorological-station.png'
+	import PPIcon from 'assets/images/gis/meteorological-station.png'
 	import SKIcon from 'assets/images/gis/reservoir.png'
 	import HDIcon from 'assets/images/gis/wl_0.png'
 	import ZZIcon from 'assets/images/gis/brake_dd.png'
@@ -105,7 +105,7 @@
 				this.$axios.get(config.server + "/api/dataQuery/getLatestData").then(res => {
 					if (res.code === 1) {
 						// ZZ: 河道 RR: 水库 DD: 泵站 DP: 闸站 PP: 雨量
-						let [YLData, HDData, SKData, BZData, ZZData, ISData] = [
+						let [PPData, HDData, SKData, BZData, ZZData, ISData] = [
 							res.detail.pp,
 							res.detail.zz,
 							res.detail.rr,
@@ -113,12 +113,19 @@
 							res.detail.dp,
 							res.detail.is
 						]
-						this.addTypeMarker(YLData, YLIcon, 'YL')
-						this.addTypeMarker(HDData, HDIcon, 'HD')
-						this.addTypeMarker(SKData, SKIcon, 'SK')
-						this.addTypeMarker(BZData, BZIcon, 'BZ')
-						this.addTypeMarker(ZZData, ZZIcon, 'ZZ')
-						this.addTypeMarker(ISData, TXIcon, "TX")
+						this.addTypeMarker(PPData, PPIcon, 'PP')
+						this.addTypeMarker(HDData, HDIcon, 'ZZ')
+						this.addTypeMarker(SKData, SKIcon, 'RR')
+						this.addTypeMarker(BZData, BZIcon, 'DD')
+						this.addTypeMarker(ZZData, ZZIcon, 'DP')
+						this.addTypeMarker(ISData, TXIcon, "IS")
+
+					// this.addTypeMarker(PPData, PPIcon, "PP");
+					// this.addTypeMarker(HDData, HDIcon, "HD");
+					// this.addTypeMarker(SKData, SKIcon, "SK");
+					// this.addTypeMarker(BZData, BZIcon, "BZ");
+					// this.addTypeMarker(ZZData, ZZIcon, "ZZ"); // 闸站
+					// this.addTypeMarker(ISData, TXIcon, "TX");
 
 						// 数据传递给Vuex状态，结果“超出最大调用堆栈大小”，判断markerListAll是否完成
 						this.setMarkerList(true)

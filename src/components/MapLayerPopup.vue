@@ -7,7 +7,7 @@
           {{ monitorObj.stnm }}{{ this.monitorObj.typeName }}监测站
         </div>
         <div class="shoucang">
-          <i class="iconfont" :class="[this.monitorObj.isCollect!==true ? 'icon-weishoucang': 'icon-shoucang']" @click="shoucangEvent"></i>
+          <i :class="[this.monitorObj.isCollect ? 'icon-shoucang': 'icon-weishoucang', 'iconfont']" @click="shoucangEvent"></i>
         </div>
       </div>
       <!--雨量-->
@@ -41,6 +41,12 @@
         <li><span>当前闸上水位：</span><p></p><p>{{ monitorObj.UPZ === null ? "" : monitorObj.UPZ }}</p></li>
         <li><span>当前闸下水位：</span><p></p><p>{{ monitorObj.DWZ === null ? "" : monitorObj.DWZ }}</p></li>
         <li><span>获取时间：</span><p>{{ monitorObj.TM }}</p></li>
+      </ul>
+      <!--图像站-->
+      <ul class="sheetStepList" v-if="this.monitorObj.typeID == 'IS'">
+        <li><span>位置：</span><p>{{ monitorObj.stlc }}</p></li>
+        <li><span>当前图像：</span><p></p> <img style="width:30px;height:30px;" :src="monitorObj.IMGURL === null ? '' : monitorObj.IMGURL"/></li>
+        <li><span>获取时间：</span><p>{{ monitorObj.imgCrateTime=== null ? '' : monitorObj.imgCrateTime}}</p></li>
       </ul>
     </div>
     <!-- 向上刷起，打开的其余部分内容 -->
@@ -81,6 +87,7 @@ export default {
       markerListAll: [],
       sheetOpened: false,
       monitorName: "XXX水位（雨量）监测点",
+      notificationText: '监测点收藏成功！',
       monitorObj: {
         isCollect: false
       },
@@ -105,22 +112,25 @@ export default {
         //   This.monitorClickFn(this)
         // })
         monitorListAll[i].on("click", e => {
-          console.log(e,'ddd')
+          console.log(e, "ddd")
           console.log(monitorListAll[i])
           let monitorStaObj = monitorListAll[i].getExtData()
-          console.log(monitorStaObj,'monitorStaObj')
-          this.monitorObj = {}
-          this.monitorObj.typeID = monitorStaObj.sttp
-          this.monitorObj.typeName = this.monitorObjEnum[monitorStaObj.sttp]
-          this.getMonitorDataByStcd(monitorStaObj.sttp, monitorStaObj.stcd)
+          console.log(monitorStaObj, "monitorStaObj")
+          if (monitorStaObj.typeID === "IS") {
+            monitorStaObj.stcd = monitorStaObj.imstcd
+            monitorStaObj.stnm = monitorStaObj.IMSTNM
+          }
+          this.monitorObj = monitorStaObj
+          this.monitorObj.typeName = this.monitorObjEnum[monitorStaObj.typeID]
+          this.getMonitorDataByStcd(monitorStaObj.typeID, monitorStaObj.stcd)
           This.monitorClickFn(e)
-        })
+        });
       }
     },
     getMonitorDataByStcd(sttp, stcd) {
       this.$axios.get(config.server + "/api/app/getLatestDataByStcd/" + sttp + "/" + stcd).then(res => {
         if (res.code === 1) {
-          console.log(res.detail.result[0])
+          console.log(res.detail.result[0]);
           this.monitorObj = Object.assign(
             {},
             this.monitorObj,
@@ -144,28 +154,39 @@ export default {
     },
     // 收藏保存
     shoucangEvent() {
-      console.log(this.monitorObj)
       let data = {
         CollectStcdId: this.monitorObj.stcd,
         STTP: this.monitorObj.typeID
-      };
+      }
       if (this.monitorObj.CollectId != null) {
-        data["id"] = this.monitorObj.CollectId;
+        data["id"] = this.monitorObj.CollectId
         if (this.monitorObj.isCollect) data["is_deleted"] = 1
         else data["is_deleted"] = 0
       } else {
         data["is_deleted"] = 0
       }
-      this.monitorObj.isCollect = !this.monitorObj.isCollect
-
+      // 提示组件
+      let notificationFull = this.$f7.notification.create({
+        text: this.notificationText,
+        closeTimeout: 2000,
+      })
+      
       this.$axios({
         method: "post",
         url: config.server + "/api/app/addorUpdateCollectData",
         data: data
       }).then(res => {
         window.console.log(res, "res")
+        if (res.content === "操作成功") {
+          // 用$set改变对象属性
+          this.$set(this.monitorObj, "isCollect", !this.monitorObj.isCollect)
+          if (this.monitorObj.isCollect) {
+            this.notificationText = '监测点取消收藏！'
+          }
+          notificationFull.open()
+        }
       })
-    }
+    },
   },
   computed: {
     ...mapState(["markerList"])
