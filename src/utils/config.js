@@ -1,7 +1,8 @@
 const config = {
 	title: "荆州市县级农村基层防汛监测预警平台",
 	version: "v1.0.0",
-	server: 'http://iot.keepsoft.net:9473/jzfx-web',
+	//server: 'http://iot.keepsoft.net:9473/jzfx-web',
+	server: 'http://121.199.38.211:8080/jzfx-web',
 	// server: 'http://localhost:8089'
 }
 

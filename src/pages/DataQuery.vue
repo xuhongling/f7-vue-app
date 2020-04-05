@@ -193,7 +193,7 @@
 			background: #fff;
 		}
 		/deep/.page-content{
-			padding: 56px 10px 28px 10px;
+			padding: 56px 10px 18px 10px;
 		}
 		div[id^='infoManage']{
 			padding-left: 10px;

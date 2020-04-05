@@ -1,23 +1,37 @@
+// Import Vue
 import Vue from 'vue'
 import store from './store'
-import App from './App.vue'
 import axios from '@/utils/ajax'
 
-// Import Framework7 Bundle
+// Import Framework7
 import Framework7 from 'framework7/framework7-lite.esm.bundle.js'
-// Import Framework7-Vue with all components
-import Framework7Vue from 'framework7-vue/framework7-vue.esm.bundle.js'
-import 'framework7-icons'
-import 'framework7-icons/css/framework7-icons.css'
-import 'assets/css/reset.css'
 
-// Init plugin and register all components
+// Import Framework7-Vue Plugin
+import Framework7Vue from 'framework7-vue/framework7-vue.esm.bundle.js'
+
+// Import Framework7 Styles
+import 'framework7/css/framework7.bundle.css'
+
+// Import Icons and App Custom Styles
+import 'static/css/icons.css'
+import 'static/css/reset.css'
+
+// Import App Component
+import App from './App.vue'
+
+// Init Framework7-Vue Plugin
 Framework7.use(Framework7Vue)
 
-Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 
+// Init App
 new Vue({
 	store,
-  render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  render: (h) => h(App),
+
+  // Register App Component
+  components: {
+    app: App
+  },
+})

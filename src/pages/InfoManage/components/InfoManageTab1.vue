@@ -1,5 +1,5 @@
 <template>
-  <div class="infoManageTab1">
+  <div class="infoManageTab">
     <f7-list class="infoManageList">
       <f7-list-item title="类型选择：" smart-select :smart-select-params="{openIn: 'popover'}">
         <select name="superhero" v-model="selectValue" @change='getSelectValue'>
@@ -114,7 +114,7 @@
             return
           }
           This.limit = This.limit + 20
-          This.getTabsData(This.sttp)
+          This.getTabsData()
           lastItemIndex = tbodyContent.querySelectorAll('tr').length
         })
       }
@@ -131,10 +131,11 @@
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>
-  .infoManageTab1{
+  .infoManageTab{
     width: 100%;
     height: 100%;
-    padding: 10px 10px 28px 10px;
+    background: #f2f3f5;
+    padding: 10px 10px 18px 10px;
     .infoManageList{
       margin: 10px 0;
     }

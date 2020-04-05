@@ -1,15 +1,19 @@
 import HomePage from 'pages/HomePage'
 import Login from 'pages/Login'
+import DataQuery from 'pages/DataQuery'
+import InfoManage from 'pages/InfoManage'
+import MyProfile from 'pages/MyProfile'
 import DataReport from 'pages/DataReport'
 import GoInspection from 'pages/GoInspection'
 import EmergencyReport from 'pages/EmergencyReport'
 import ContactsList from 'pages/ContactsList'
 import MyMessage from 'pages/MyMessage'
+import NotFoundPage from 'pages/404'
 
-export default [
+var routes = [
 	{
 		path: '/',
-		name:'home',
+    name:'home',
 		redirect: '/home/'
 	},{
 		path:'/home/',
@@ -19,6 +23,18 @@ export default [
     path:'/login/',
     name:'login',
     component: Login
+  }, {
+    path:'/dataQuery/',
+    name:'dataQuery',
+    component: DataQuery
+  },{
+    path:'/infoManage/',
+    name:'infoManage',
+    component: InfoManage
+  },{
+    path:'/myProfile/',
+    name:'myProfile',
+    component: MyProfile
   }, {
     path:'/goInspection/',
     name:'goInspection',
@@ -40,5 +56,10 @@ export default [
     path:'/myMessage/',
     name:'myMessage',
     component: MyMessage
+  }, {
+    path: '(.*)',
+    component: NotFoundPage,
   }
 ]
+
+export default routes

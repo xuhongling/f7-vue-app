@@ -1,5 +1,5 @@
 <template>
-  <div class="myProfile">
+  <f7-page class="myProfile">
     <div class="userInfo">
       <div class="userName">
         <h3 class="name">{{userName}}</h3>
@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="userInfoHead">
-        <img src="../assets/images/user.png">
+        <img :src="userImg">
       </div>
     </div>
     <ul class="list">
@@ -47,17 +47,22 @@
         </div>
       </li>
     </ul>
-  </div>
+    <f7-block>
+      <f7-button fill round large @click="handleClickLogout"><span style="font-size: 16px">退出登录</span></f7-button>
+    </f7-block>
+  </f7-page>
 </template>
 
 <script>
   import { mapState } from "vuex"
   import { config } from "utils/config"
+  import userImg from 'assets/images/user.png'
   export default {
     name: "MyProfile",
     data() {
       return {
         userName: '张小明',
+        userImg: '',
         useInfo: {
           dept_name: "",
           role_name: ""
@@ -79,9 +84,15 @@
             this.useInfo = res.detail && res.detail.result[0]
           }
         })
+      },
+      handleClickLogout(){
+        sessionStorage.setItem("isAuthenticated", "false")
+        this.$f7router.navigate("/login/")
+        window.location.reload()
       }
     },
     mounted(){
+      this.userImg = userImg
       this.hasRoles(1) //this.userName.id
     },
     watch:{

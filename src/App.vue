@@ -1,37 +1,69 @@
 <template>
-  <div id="app">
-    <f7-app :params="f7params">
-      <f7-view main url="/"></f7-view>
-    </f7-app>
-  </div>
+  <f7-app :params="f7params">
+    <f7-views tabs class="appViewWrapper">
+      <!-- Tabbar for switching views-tabs -->
+      <f7-toolbar tabbar labels bottom class="navigationTabbar">
+        <f7-link tab-link="#view-home" tab-link-active><i class="iconfont icon-map"></i><span class="tabbar-label">首页地图</span></f7-link>
+        <f7-link tab-link="#view-dataQuery"><i class="iconfont icon-data"></i><span class="tabbar-label">数据查询</span></f7-link>
+        <f7-link tab-link="#view-infoManage"><i class="iconfont icon-xinxi"></i><span class="tabbar-label">信息管理</span></f7-link>
+        <f7-link tab-link="#view-myProfile"><i class="iconfont icon-wode"></i><span class="tabbar-label">我的</span></f7-link>
+      </f7-toolbar>
+
+      <!-- Your main view/tab, should have "view-main" class. It also has "tab-active" class -->
+      <f7-view id="view-home" main tab tab-active url="/"></f7-view>
+
+      <!-- 数据查询 View -->
+      <f7-view id="view-dataQuery" name="dataQuery" tab url="/dataQuery/"></f7-view>
+
+      <!-- 信息管理 View -->
+      <f7-view id="view-infoManage" name="infoManage" tab url="/infoManage/"></f7-view>
+      
+      <!-- 我的 View -->
+      <f7-view id="view-myProfile" name="myProfile" tab url="/myProfile/"></f7-view>
+    </f7-views>
+  </f7-app>
 </template>
 
 <script>
-  import router from './router/index.js'
+  import { Device }  from 'framework7/framework7-lite.esm.bundle.js'
+  import cordovaApp from 'utils/cordova-app.js'
+  import routes from 'router/index.js'
   export default {
     name: 'app',
     data() {
       return {
-        //具体参考http://framework7.io/docs/app.html
+        // Framework7 Parameters
         f7params: {
-          routes: router,
-          name: 'f7-vue-app',
-          id: 'com.myapp.test',
-          theme: 'auto', // 主题 auto:自适应; ios:苹果; android:安卓 
-          touch: {
-            disableContextMenu: false //是否开启上下文联动    
+          id: 'io.framework7.jzfxApp', // App bundle ID
+          name: 'jzfxApp', // App name
+          theme: 'auto', // Automatic theme detection
+          // App routes
+          routes: routes,
+          // Input settings
+          input: {
+            scrollIntoViewOnFocus: Device.cordova && !Device.electron,
+            scrollIntoViewCentered: Device.cordova && !Device.electron,
           },
-          view: {
-            pushState: true,
-            pushStateRoot: '', //根URL分隔符也可以使用   document.location.pathname.split('index.html')[0]
-            pushStateSeparator: '#'  //pushStateRoot为空字符才能使用，网址 分隔符号 # !
-          }, //f7移植到vue后路由切换后刷新无法保存当前路由在app.vue中加入pushState属性和pushStateRoot属性以及让‘/’根路由匹配index.html
-          dialog: { //fw7-vue选择框按钮内容
-            buttonOk: "确认",
-            buttonCancel: "取消"
-          }
+          // Cordova Statusbar settings
+          statusbar: {
+            iosOverlaysWebView: true,
+            androidOverlaysWebView: false,
+          },
+        },
+
+        // Login screen data
+        username: '',
+        password: '',
+      }
+    },
+    mounted() {
+      this.$f7ready((f7) => {
+        // Init cordova APIs (see cordova-app.js)
+        if (Device.cordova) {
+          cordovaApp.init(f7);
         }
-      };
+        // Call F7 APIs here
+      });
     },
     components: {
       
@@ -39,11 +71,16 @@
   }
 </script>
 
-<style>
-#app {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
+<style lang="less" rel="stylesheet/less" scoped>
+  .appViewWrapper{
+    padding-bottom: var(--f7-tabbar-labels-height);
+  }
+  .navigationTabbar{
+    position: fixed;
+    i.iconfont{
+      font-size: var(--f7-tabbar-icon-size);
+      height: var(--f7-tabbar-icon-size);
+      line-height: var(--f7-tabbar-icon-size);
+    }
+  }
 </style>
